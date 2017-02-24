@@ -1,0 +1,4 @@
+demo/*
+*.log
+robots.txt
+demo/.htaccess
