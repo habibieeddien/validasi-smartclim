@@ -150,8 +150,6 @@ if(isset($_POST['save_data']) && isset($_POST['idprov'])){
     
     }// END foreach "# INPUT Data Longsor"
 
-    echo("<center><h1>TIDAK ADA DATA TERKIRIM!</h1></center><hr>");
-
 }else{
 
     // Jika gagal POST data ke DB

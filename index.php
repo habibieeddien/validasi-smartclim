@@ -4,6 +4,9 @@
 */-->
 
 <?php 
+date_default_timezone_set("Asia/Jakarta");
+setlocale (LC_TIME, 'INDONESIA'); // untuk OS Windows
+/*setlocale (LC_TIME, 'id_ID'); //untuk OS Linux */
 require_once("php_class/class_db.php");  
 
 // buat objek DB baru
@@ -31,7 +34,7 @@ $provinsi = $db -> select("SELECT * FROM `provinsi` ORDER BY kode_prov");
 
     <header class="ccheader">
       <h1>Validasi SMARTCLIM</h1>
-      <h5>Tim Pemantau PASTIGANA</h5>
+      <h5>Tim Pemantau PASTIGANA<br><?php echo date('l, j F Y'); ?></h5>
     </header>
 
     <div class="wrapper">
@@ -155,7 +158,6 @@ $provinsi = $db -> select("SELECT * FROM `provinsi` ORDER BY kode_prov");
         <a href="#" target="_blank">Asep Syarif Hidayat</a>
       </p>
     </div>
-<input type='checkbox' data-toggle='tooltip' data-placement='top' data-original-title="PU" class='checkbox'/>
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
