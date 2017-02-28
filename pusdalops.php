@@ -25,12 +25,27 @@ $provinsi = $db -> select("SELECT * FROM `provinsi` ORDER BY kode_prov");
   <body>
 
     <header class="ccheader">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Validasi SMARTCLIM</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="index.php">PASTIGANA</a></li>
+            <li class="active"><a href="pusdalops.php">PUSDALOPS</a></li>
+            <li><a href="export.php">EXPORT TO EXCELS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
       <h1>Validasi SMARTCLIM</h1>
-      <h5>Tim Pemantau PUSDALOPS</h5>
+      <h5>Tim Pemantau PUSDALOPS<br><?php echo date('l, j F Y'); ?></h5>
     </header>
 
     <div class="wrapper">
-      <form method="post" action="php_class/save_data.php" class="ccform">
+      <form method="post" action="#" class="ccform">
 
         <div class="ccfield-prepend">
           <select id="provinsi" name="provinsi" class="ccformfield" placeholder="Pilih Provinsi" onchange="getSingleKabKota(this.value)">
@@ -48,8 +63,8 @@ $provinsi = $db -> select("SELECT * FROM `provinsi` ORDER BY kode_prov");
           <div id="banjir" class="tab-pane fade in active">
             <div class="ccfield-prepend container">
               <center>
-                <p style="margin-top:33px;">Kab./Kota: <select id="kabkota" name="kabkota" onchange="getSingleDataKabKota(this.value)"><option value="" selected disabled>Pilih Kab./Kota</option></select></p>
-                <p>Hari, Tanggal: <?php echo date('l, j F Y'); ?></p>
+                <p style="margin-top:33px;">Kab./Kota: <select id="kabkota" name="kabkota" onchange="getTglPrediksi(this.value)"><option value="" selected disabled>Pilih Kab./Kota</option></select></p>
+                <p>Hari, Tanggal: <select id="tglprediksi" name="tglprediksi" onchange="getSingleDataKabKota(this.value)"><option value="" selected disabled>Pilih Tanggal Prediksi</option></select></p>
                 <table border="1" id="data_banjir" name="data_banjir" class="table table-hover" style="margin-top:33px;font-size:10.5pt; width:100%">
                   <thead>
                     <tr>

@@ -63,6 +63,25 @@ class DB{
     }
 
     /**
+     * Baca baris dari DB (SELECT query) as result array index
+     *
+     * @param $query Query string
+     * @return bool False jika gagal / array DB jika sukses
+     */
+    public function select_array($query) {
+        $rows = array();
+        $result = $this -> query($query);
+
+        if($result === false) {
+            return false;
+        }
+
+        $rows = mysqli_fetch_array($result, MYSQLI_NUM);
+
+        return $rows;
+    }
+
+    /**
      * error terakhir yang terjadi di DB
      * 
      * @return string pesan error DB
@@ -88,7 +107,7 @@ class DB{
         $data = stripslashes($data);
         $data = strip_tags($data);
         $data = htmlspecialchars($data);
-        //$data = $this->quote($data);
+        $data = $this->quote($data);
         return $data;
     }
 

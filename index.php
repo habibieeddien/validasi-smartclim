@@ -33,8 +33,25 @@ $provinsi = $db -> select("SELECT * FROM `provinsi` ORDER BY kode_prov");
   <body>
 
     <header class="ccheader">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Validasi SMARTCLIM</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.php">PASTIGANA</a></li>
+            <li><a href="pusdalops.php">PUSDALOPS</a></li>
+            <li><a href="export.php">EXPORT TO EXCELS</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
       <h1>Validasi SMARTCLIM</h1>
-      <h5>Tim Pemantau PASTIGANA<br><?php echo date('l, j F Y'); ?></h5>
+      <h5>Tim Pemantau PASTIGANA<br>
+        <?php echo date('l, j F Y'); ?>
+      </h5>
     </header>
 
     <div class="wrapper">
@@ -136,7 +153,9 @@ $provinsi = $db -> select("SELECT * FROM `provinsi` ORDER BY kode_prov");
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <center><h4 class="modal-title"><strong>Konfirmasi</strong></h4></center>
+                  <center>
+                    <h4 class="modal-title"><strong>Konfirmasi</strong></h4>
+                  </center>
                 </div>
                 <div class="modal-body">
                   <p>Anda Yakin ingin menyimpan data ini ?</p>

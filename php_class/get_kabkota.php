@@ -100,16 +100,16 @@ echo("
                   <th style=\"text-align: center; vertical-align:middle;\" colspan=\"6\"><b>SMARTCLIM</b></th>
                 </tr>
                 <tr>
-                  <th style=\"text-align: center; vertical-align:middle;\" colspan=\"3\"><b>Cuaca</b><br>&#9745; : Hujan</th>
+                  <th style=\"text-align: center; vertical-align:middle; background-color:white;\" colspan=\"3\"><b>Cuaca</b><br>&#9745; : Hujan</th>
                   <th style=\"text-align: center; vertical-align:middle;\" colspan=\"3\"><b>Warning</b><br>&#9745; : Awas</th>
                 </tr>
                 <tr>
                   <th>7:00</th>
                   <th>13:00</th>
                   <th>19:00</th>
-                  <th>7:00</th>
-                  <th>13:00</th>
-                  <th>19:00</th>
+                  <th style=\"background-color:white;\">7:00</th>
+                  <th style=\"background-color:white;\">13:00</th>
+                  <th style=\"background-color:white;\">19:00</th>
                   <th>7:00</th>
                   <th>13:00</th>
                   <th>19:00</th>
@@ -133,13 +133,13 @@ foreach($select_kabkota as $kabkota){
                   <td>
                     <center><input class=\"my-checkbox\" type=\"checkbox\" name=\"longsorkab".$kabkota['kode_kab']."[4]\" value=\"1\" ></center>
                   </td>
-                  <td>
+                  <td style=\"background-color:white;\">
                     <center><input class=\"my-checkbox\" type=\"checkbox\" name=\"longsorkab".$kabkota['kode_kab']."[5]\" value=\"1\" ></center>
                   </td>
-                  <td>
+                  <td style=\"background-color:white;\">
                     <center><input class=\"my-checkbox\" type=\"checkbox\" name=\"longsorkab".$kabkota['kode_kab']."[6]\" value=\"1\" ></center>
                   </td>
-                  <td>
+                  <td style=\"background-color:white;\">
                     <center><input class=\"my-checkbox\" type=\"checkbox\" name=\"longsorkab".$kabkota['kode_kab']."[7]\" value=\"1\" ></center>
                   </td>
                   <td>
