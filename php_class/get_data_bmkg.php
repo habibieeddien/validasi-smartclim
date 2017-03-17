@@ -2,7 +2,7 @@
 //error_reporting(0);
 ini_set('max_execution_time', 1200);
 ini_set('display_errors', 'on');
-ini_set('memory_limit', '1024M');
+ini_set('memory_limit', '2048M');
 // using DOM HTML
 // Create DOM from URL or file
 include_once "simple_html_dom.php";
