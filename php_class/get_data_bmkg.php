@@ -1,6 +1,8 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 ini_set('max_execution_time', 1200);
+ini_set('display_errors', 'on');
+ini_set('memory_limit', '1024M');
 // using DOM HTML
 // Create DOM from URL or file
 include_once "simple_html_dom.php";
@@ -307,7 +309,7 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tanjung%20Bala
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tanjung%20Pinang&AreaID=501371&Prov=18';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tarempa&AreaID=501372&Prov=18';
 //Sumatera Utara
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Aek Kanopan&AreaID=5002212&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Aek%20Kanopan&AreaID=5002212&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Balige&AreaID=501573&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Binjai Kota&AreaID=501574&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Dolok Sanggul&AreaID=501575&Prov=34';
@@ -519,56 +521,179 @@ $myurl[] = 'http://bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Waikabubak&AreaID=
 $myurl[] = 'http://bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Waingapu&AreaID=501442&Prov=23';
 $myurl[] = 'http://bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Weetabula&AreaID=501610&Prov=23';
 
-
+function urlOk($url) {
+	$headers = @get_headers($url);
+	if($headers[0] == 'HTTP/1.1 200 OK') return true;
+	else return false;
+}
 // Find all div 
 echo "<table border='1'>";
 echo "<tr>";
-echo "<td>Kota</td>";
+echo "<td>Provinsi</td>";
+echo "<td>Kota/Kab</td>";
 echo "<td>Cuaca Pagi</td>";
 echo "<td>Cuaca Siang</td>";
 echo "<td>Cuaca Malam</td>";
 echo "<td>Cuaca Dini Hari</td>";
-echo "<td>Keterangan</td>";
 echo "</tr>";
-try{
-	foreach ($myurl as $myurls) {
+foreach ($myurl as $myurls) {
+	//$html = file_get_html($myurls,false,$context);
+	if (urlOk(trim($myurls))) {
 		$html = file_get_html($myurls);
-		echo "<tr>";
-		echo "<td>".$html->find('<h2[class=blog-grid-title-lg]',0)."</td>"; //get kota/kab
-		try{
-			foreach($html->find('div[id=TabPaneCuaca2]') as $element){
-				/*foreach ($element->find('h2[class=kota]') as $waktu){
-					$data['waktu'] = $waktu;
-				}*/
-				$H = False;
-				foreach($element->find('div[class=kiri]') as $cuaca){
-					$cuacas = $cuaca->childNodes(1); 
-					//echo $cuaca->childNodes(1); //get childNodes in div class kiri
-					//sampel : <div class="kiri"><p>Hujan</p></div> tag <p> is childNodes1, if then tag <p> agains on tag div same is childNodes2.
-					if(strpos($cuaca->childNodes(1), 'Hujan Petir') || strpos($cuaca->childNodes(1), 'Hujan Lebat') || strpos($cuaca->childNodes(1), 'Hujan Sedang')){
-						$H = TRUE;
-						break;
-					}//cek jenis hujan
-				}
-				$cuacaPagi = $element->find('div[class=kiri]',0)->childNodes(1); //pagi
-				$cuacaSiang = $element->find('div[class=kiri]',1)->childNodes(1); //siang
-				$cuacaMalam = $element->find('div[class=kiri]',2)->childNodes(1); //malam
-				$cuacaDiniHari = $element->find('div[class=kiri]',3)->childNodes(1); //dini hari
-				echo "<td>".$cuacaPagi."</td>";
-				echo "<td>".$cuacaSiang."</td>";
-				echo "<td>".$cuacaMalam."</td>";
-				echo "<td>".$cuacaDiniHari."</td>";
-				if($H){$Chujan = "Hujan";}else{$Chujan = "Tidak Hujan";} //cek hujan atau tidak
-				echo "<td>".$Chujan."</td>";
-				echo "</tr>";
-			}//close foreach id="TabPaneCuaca2"
-		}catch(Exception $e){
-			var_dump($e->getTrace());
-		}//close try catch1
-	} //close foreach url
-}catch(Exception $e){
-	//echo "getMessage : ".$e->getMessage();
-	var_dump($e->getTrace());
-}//try catch2
+	}
+	$kode_prov = substr($myurls, strrpos($myurls, "=") + 1);
+	switch ($kode_prov){
+		case ('1'):
+			$prov = 'Aceh';
+		break;
+		case ('4'):
+			$prov = 'Banten';
+		break;
+		case ('7'):
+			$prov = 'DKI Jakarta';
+		break;
+		case ('10'):
+			$prov = 'Jawa Barat';
+		break;
+		case ('13'):
+			$prov = 'Kalimantan Barat';
+		break;
+		case ('16'):
+			$prov = 'Kalimantan Timur';
+		break;
+		case ('19'):
+			$prov = 'Lampung';
+		break;
+		case ('22'):
+			$prov = 'Nusa Tenggara Barat';
+		break;
+		case ('25'):
+			$prov = 'Papua Barat';
+		break;
+		case ('28'):
+			$prov = 'Sulawesi Selatan';
+		break;
+		case ('31'):
+			$prov = 'Sulawesi Utara';
+		break;
+		case ('34'):
+			$prov = 'Sumatera Utara';
+		break;
+		case ('8'):
+			$prov = 'Gorontalo';
+		break;
+		case ('2'):
+			$prov = 'Bali';
+		break;
+		case ('5'):
+			$prov = 'Bengkulu';
+		break;
+		case ('11'):
+			$prov = 'Jawa Tengah';
+		break;
+		case ('14'):
+			$prov = 'Kalimantan Selatan';
+		break;
+		case ('17'):
+			$prov = 'Kalimantan Utara';
+		break;
+		case ('20'):
+			$prov = 'Maluku';
+		break;
+		case ('23'):
+			$prov = 'Nusa Tenggara Timur';
+		break;
+		case ('26'):
+			$prov = 'Riau';
+		break;
+		case ('29'):
+			$prov = 'Sulawesi Tengah';
+		break;
+		case ('32'):
+			$prov = 'Sumatera Barat';
+		break;
+		case ('3'):
+			$prov = 'Bangka Belitung';
+		break;
+		case ('6'):
+			$prov = 'DI Yogyakarta';
+		break;
+		case ('9'):
+			$prov = 'Jambi';
+		break;
+		case ('12'):
+			$prov = 'Jawa Timur';
+		break;
+		case ('15'):
+			$prov = 'Kalimantan Tengah';
+		break;
+		case ('18'):
+			$prov = 'Kepulauan Riau';
+		break;
+		case ('21'):
+			$prov = 'Maluku Utara';
+		break;
+		case ('24'):
+			$prov = 'Papua';
+		break;
+		case ('27'):
+			$prov = 'Sulawesi Barat';
+		break;
+		case ('30'):
+			$prov = 'Sulawesi Tenggara';
+		break;
+		case ('33'):
+			$prov = 'Sumatera Tengah';
+		break;
+	}
+	$kode_kab = $html->find('<h2[class=blog-grid-title-lg]',0);
+	$kode_kotas = substr($kode_kab, strrpos($kode_kab, "(") + 1);
+	$kab_kota = str_replace(')','',$kode_kotas);
+	echo "<tr>";
+	foreach($html->find('div[id=TabPaneCuaca2]') as $element){
+		$H = False;
+		foreach($element->find('div[class=kiri]') as $cuaca){
+			$cuacas = $cuaca->childNodes(1); 
+			//echo $cuaca->childNodes(1); //get childNodes in div class kiri
+			//sampel : <div class="kiri"><p>Hujan</p></div> tag <p> is childNodes1, if then tag <p> agains on tag div same is childNodes2.
+			if(strpos($cuaca->childNodes(1), 'Hujan Petir') || strpos($cuaca->childNodes(1), 'Hujan Lebat') || strpos($cuaca->childNodes(1), 'Hujan Sedang')){
+				$H = TRUE;
+				break;
+			}//cek jenis hujan
+		}
+		$cuacaPagi = $element->find('div[class=kiri]',0)->childNodes(1); //pagi
+		$cuacaSiang = $element->find('div[class=kiri]',1)->childNodes(1); //siang
+		$cuacaMalam = $element->find('div[class=kiri]',2)->childNodes(1); //malam
+		$cuacaDiniHari = $element->find('div[class=kiri]',3); //dini hari
+		/*if(isset($get_cuacaDiniHari)){
+			$cuacaDiniHari = '-';
+		}else{
+			$cuacaDiniHari = $get_cuacaDiniHari;
+		}*/
+		if($H){
+			echo "<td>".$prov."</td>";
+			echo "<td>".$kab_kota."</td>"; //get kota/kab
+			//cek cuacaPagi
+			if(strpos($cuacaPagi,'Hujan Petir') || strpos($cuacaPagi,'Hujan Lebat') || strpos($cuacaPagi,'Hujan Sedang')){
+				echo "<td>Hujan</td>";
+			}else{ echo"<td>-</td>";}
+			//cek cuacaSiang
+			if(strpos($cuacaSiang,'Hujan Petir') || strpos($cuacaSiang,'Hujan Lebat') || strpos($cuacaSiang,'Hujan Sedang')){
+				echo "<td>Hujan</td>";
+			}else{ echo"<td>-</td>";}
+			//cek cuacaMalam
+			if(strpos($cuacaMalam,'Hujan Petir') || strpos($cuacaMalam,'Hujan Lebat') || strpos($cuacaMalam,'Hujan Sedang')){
+				echo "<td>Hujan</td>";
+			}else{ echo"<td>-</td>";}
+			//cek cuacaDiniHari
+			if(strpos($cuacaDiniHari,'Hujan Petir') || strpos($cuacaDiniHari,'Hujan Lebat') || strpos($cuacaDiniHari,'Hujan Sedang')){
+				echo "<td>Hujan</td>";
+			}else{ echo"<td>-</td>";}
+		}/*else{
+			$Chujan = "Tidak Hujan";
+		} //cek hujan atau tidak*/
+		echo "</tr>";
+	}//close foreach id="TabPaneCuaca2"
+} //close foreach url
 echo "</table>"; //table
 ?>
