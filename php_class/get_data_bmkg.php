@@ -649,7 +649,6 @@ foreach ($myurl as $myurls) {
 	$kode_kab = $html->find('<h2[class=blog-grid-title-lg]',0);
 	$kode_kotas = substr($kode_kab, strrpos($kode_kab, "(") + 1);
 	$kab_kota = str_replace(')','',$kode_kotas);
-	echo "<tr>";
 	foreach($html->find('div[id=TabPaneCuaca2]') as $element){
 		$H = False;
 		foreach($element->find('div[class=kiri]') as $cuaca){
@@ -671,6 +670,7 @@ foreach ($myurl as $myurls) {
 			$cuacaDiniHari = $get_cuacaDiniHari;
 		}*/
 		if($H){
+			echo "<tr>";
 			echo "<td>".$prov."</td>";
 			echo "<td>".$kab_kota."</td>"; //get kota/kab
 			//cek cuacaPagi
