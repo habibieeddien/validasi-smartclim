@@ -1,8 +1,7 @@
 <?php
 //error_reporting(0);
-ini_set('max_execution_time', 1200);
+ini_set('max_execution_time', 100000);
 ini_set('display_errors', 'on');
-ini_set('memory_limit', '2048M');
 // using DOM HTML
 // Create DOM from URL or file
 include_once "simple_html_dom.php";
@@ -26,7 +25,6 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sigli&AreaID=5
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Simpang%20Tiga%20Redelong&AreaID=501412&Prov=1';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sinabang&AreaID=501413&Prov=1';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Singkil&AreaID=501414&Prov=1';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Subulussalam&AreaID=501606&Prov=1';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Subulussalam&AreaID=501606&Prov=1';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Suka%20Makmue&AreaID=501415&Prov=1';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Takengon&AreaID=501416&Prov=1';
@@ -60,11 +58,9 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Jakarta%20Sela
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Jakarta%20Timur&AreaID=501191&Prov=7';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Jakarta%20Utara&AreaID=501196&Prov=7';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kepulauan%20Seribu&AreaID=501194&Prov=7';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tangerang&AreaID=501175&Prov=7';
 //Jawa Barat
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bandung&AreaID=501212&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Banjar&AreaID=501213&Prov=10';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bekasi&AreaID=5002228&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ciamis&AreaID=501216&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Cianjur&AreaID=501217&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Cibinong&AreaID=501218&Prov=10';
@@ -72,7 +68,6 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Cikarang&AreaI
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Cimahi&AreaID=501220&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Cirebon&AreaID=501221&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Cisaat&AreaID=501222&Prov=10';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Depok&AreaID=5002229&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Garut&AreaID=501224&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Indramayu&AreaID=501225&Prov=10';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Karawang&AreaID=501226&Prov=10';
@@ -89,12 +84,12 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sumedang&AreaI
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tasikmalaya&AreaID=501236&Prov=10';
 //Kalimantan Barat
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bengkayang&AreaID=501310&Prov=13';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kapuas%20Hulu&AreaID=5002241&Prov=13';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kayong%20Utara&AreaID=5002243&Prov=13';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kapuas%20Hulu&AreaID=5002241&Prov=13'; //Kapuas Hulu
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kayong%20Utara&AreaID=5002243&Prov=13'; //Kayong Utara
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ketapang&AreaID=501311&Prov=13';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kubu%20Raya&AreaID=5002218&Prov=13';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Landak&AreaID=501312&Prov=13';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Melawi&AreaID=5002242&Prov=13';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Melawi&AreaID=5002242&Prov=13'; //Melawi
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Mempawah&AreaID=501313&Prov=13';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pontianak&AreaID=501315&Prov=13';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sambas&AreaID=501317&Prov=13';
@@ -215,14 +210,12 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Purwokerto&Are
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Purworejo&AreaID=501259&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Rembang&AreaID=501260&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Salatiga&AreaID=501261&Prov=11';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Salatiga&AreaID=501261&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Slawi&AreaID=501263&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sragen&AreaID=501264&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sukoharjo&AreaID=501265&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Surakarta&AreaID=501266&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tegal&AreaID=501267&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Temanggung&AreaID=501268&Prov=11';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ungaran&AreaID=501269&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ungaran&AreaID=501269&Prov=11';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Wonosobo&AreaID=501271&Prov=11';
 //Jawa Timur
@@ -302,82 +295,94 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tarakan&AreaID
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tana%20Tidung&AreaID=501600&Prov=17';
 //Kep Riau
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Batam&AreaID=501601&Prov=18';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Batam&AreaID=501601&Prov=18';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Daik%20Lingga&AreaID=501369&Prov=18';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ranai&AreaID=501370&Prov=18';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tanjung%20Balai%20Karimun&AreaID=501603&Prov=18';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tanjung%20Pinang&AreaID=501371&Prov=18';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tarempa&AreaID=501372&Prov=18';
+//Riau
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bagan%20Siapiapi&AreaID=501472&Prov=26'; //Kab Rokan Hilir
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bangkinang&AreaID=501473&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bengkalis&AreaID=501474&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Dumai&AreaID=501475&Prov=26'; //Kota Dumai
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pangkalan%20Kerinci&AreaID=501476&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pasir%20Pengarairan&AreaID=501477&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pekanbaru&AreaID=501478&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Rengat&AreaID=501479&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Selat%20panjang&AreaID=5002217&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Siak%20Sri%20Indrapura&AreaID=501480&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Teluk%20Kuantan&AreaID=501481&Prov=26';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tembilahan&AreaID=501482&Prov=26';
 //Sumatera Utara
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Aek%20Kanopan&AreaID=5002212&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Balige&AreaID=501573&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Binjai Kota&AreaID=501574&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Dolok Sanggul&AreaID=501575&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Gunung Sitoli&AreaID=501576&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Gunung Tua&AreaID=5002214&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Binjai%20Kota&AreaID=501574&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Dolok%20Sanggul&AreaID=501575&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Gunung%20Sitoli&AreaID=501576&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Gunung%20Tua&AreaID=5002214&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kabanjahe&AreaID=501577&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kisaran&AreaID=501578&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kota Pinang&AreaID=5002211&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kota%20Pinang&AreaID=5002211&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lahomi&AreaID=5002216&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lima Puluh&AreaID=5002210&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lima%20Puluh&AreaID=5002210&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lotu&AreaID=5002215&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk Pakam&AreaID=501579&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk%20Pakam&AreaID=501579&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Medan&AreaID=501580&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Padang Sidempuan&AreaID=501581&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Padang%20Sidempuan&AreaID=501581&Prov=34'; //Kota Padang Sidempuan
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pangururan&AreaID=501583&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Panyabungan&AreaID=501584&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pematang Raya&AreaID=501585&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pematang Siantar&AreaID=501586&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Rantau Prapat&AreaID=501587&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pematang%20Raya&AreaID=501585&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pematang%20Siantar&AreaID=501586&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Rantau%20Prapat&AreaID=501587&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Salak&AreaID=501588&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sei Rampah&AreaID=501589&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sei%20Rampah&AreaID=501589&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sibolga&AreaID=501590&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sibuhuan&AreaID=5002213&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sidikalang&AreaID=501591&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sipirok&AreaID=501592&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Stabat&AreaID=501593&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tanjung Balai&AreaID=501594&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tanjung%20Balai&AreaID=501594&Prov=34';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tarutung&AreaID=501595&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tebing Tinggi&AreaID=501572&Prov=34';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Teluk Dalam&AreaID=501596&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tebing%20Tinggi&AreaID=501572&Prov=34';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Teluk%20Dalam&AreaID=501596&Prov=34';
 //Sumatera Selatan
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Baturaja&AreaID=501558&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Indralaya&AreaID=501559&Prov=33';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kayu Agung&AreaID=5002230&Prov=33';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kayu%20Agung&AreaID=5002230&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lahat&AreaID=501561&Prov=33';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk Linggau&AreaID=501562&Prov=33';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk%20Linggau&AreaID=501562&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Martapura&AreaID=5002231&Prov=33';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Muara Enim&AreaID=501564&Prov=33';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Muara%20Enim&AreaID=501564&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Muaradua&AreaID=501565&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Musirawas&AreaID=501566&Prov=33';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pagar Alam&AreaID=501567&Prov=33';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pagar%20Alam&AreaID=501567&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Palembang&AreaID=501568&Prov=33';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pangkalan Balai&AreaID=501569&Prov=33';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pangkalan%20Balai&AreaID=501569&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Prabumulih&AreaID=501570&Prov=33';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sekayu&AreaID=501571&Prov=33';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tebing Tinggi&AreaID=501618&Prov=33';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tebing%20Tinggi&AreaID=501618&Prov=33';
 //Sumatera Barat
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Arosuka&AreaID=501539&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Batusangkar&AreaID=501540&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bukittinggi&AreaID=501541&Prov=32';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk Basung&AreaID=501542&Prov=32';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk Sikaping&AreaID=501543&Prov=32';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Muaro Sijunjung&AreaID=501544&Prov=32';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk%20Basung&AreaID=501542&Prov=32';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lubuk%20Sikaping&AreaID=501543&Prov=32';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Muaro%20Sijunjung&AreaID=501544&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Padang&AreaID=501545&Prov=32';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Padang Aro&AreaID=501546&Prov=32';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Padang%20Aro&AreaID=501546&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Padangpanjang&AreaID=501547&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Painan&AreaID=501548&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pariaman&AreaID=501549&Prov=32';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Parit Malintang&AreaID=501550&Prov=32';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Parit%20Malintang&AreaID=501550&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Payakumbuh&AreaID=501551&Prov=32';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pulau Punjung&AreaID=501552&Prov=32';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pulau%20Punjung&AreaID=501552&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sarilamak&AreaID=501553&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sawahlunto&AreaID=501554&Prov=32';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Simpang Empat&AreaID=501555&Prov=32';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Simpang%20Empat&AreaID=501555&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Solok&AreaID=501556&Prov=32';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tuapejat&AreaID=501557&Prov=32';
 //Sulawesi Utara
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Air Madidi&AreaID=501530&Prov=31';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Air%20Madidi&AreaID=501530&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Amurang&AreaID=501531&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bitung&AreaID=501532&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Boroko&AreaID=1200110&Prov=31';
@@ -385,7 +390,7 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kotamobagu&Are
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lolak&AreaID=501533&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Manado&AreaID=501534&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Melongguane&AreaID=501535&Prov=31';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ondong Siau&AreaID=501616&Prov=31';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ondong%20Siau&AreaID=501616&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ratahan&AreaID=501617&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tahuna&AreaID=501536&Prov=31';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Tomohon&AreaID=1200111&Prov=31';
@@ -404,7 +409,7 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Maros&AreaID=5
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Masamba&AreaID=501498&Prov=28';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Palopo&AreaID=501499&Prov=28';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pangkajane&AreaID=501500&Prov=28';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pare Pare&AreaID=501501&Prov=28';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pare%20Pare&AreaID=501501&Prov=28';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pinrang&AreaID=501502&Prov=28';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Rantepao&AreaID=501503&Prov=28';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sengkang&AreaID=501504&Prov=28';
@@ -413,7 +418,7 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sinjai&AreaID=
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sungguminasa&AreaID=501507&Prov=28';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Takalar&AreaID=501508&Prov=28';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Watampone&AreaID=501509&Prov=28';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Watan Soppeng&AreaID=501510&Prov=28';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Watan%20Soppeng&AreaID=501510&Prov=28';
 //Sulawesi Tengah
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ampana&AreaID=501520&Prov=29';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bungku&AreaID=501521&Prov=29';
@@ -424,21 +429,28 @@ $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Palu&AreaID=12
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Parigi&AreaID=501526&Prov=29';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Poso&AreaID=501527&Prov=29';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Salakan&AreaID=501528&Prov=29';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sigi Biromaru&AreaID=5002257&Prov=29';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Toli Toli&AreaID=501529&Prov=29';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Sigi%20Biromaru&AreaID=5002257&Prov=29';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Toli%20Toli&AreaID=501529&Prov=29';
 //Sulawesi Tenggara
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Andoolo&AreaID=501511&Prov=30';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bau Bau&AreaID=501512&Prov=30';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bau%20Bau&AreaID=501512&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Buranga&AreaID=501612&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kendari&AreaID=501513&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Kolaka&AreaID=501514&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Lasusua&AreaID=501515&Prov=30';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pasar Wajo&AreaID=501516&Prov=30';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pasar%20Wajo&AreaID=501516&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Raha&AreaID=501517&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Rumbia&AreaID=501518&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Unaaha&AreaID=501613&Prov=30';
 $myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Wanggudu&AreaID=501614&Prov=30';
-$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Wangi Wangi&AreaID=501519&Prov=30';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Wangi%20Wangi&AreaID=501519&Prov=30';
+//Sulawesi Barat
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Majene&AreaID=501483&Prov=27';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Mamasa&AreaID=501484&Prov=27';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Mamuju&AreaID=501485&Prov=27';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Pasangkayu&AreaID=501486&Prov=27';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Polewali&AreaID=501487&Prov=27';
+$myurl[] = 'http://www.bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Topoyo&AreaID=1200113&Prov=27';
 //Maluku
 $myurl[] = 'http://bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Ambon&AreaID=501382&Prov=20';
 $myurl[] = 'http://bmkg.go.id/cuaca/prakiraan-cuaca.bmkg?Kota=Bula&AreaID=501383&Prov=20';
@@ -535,11 +547,13 @@ echo "<td>Cuaca Pagi</td>";
 echo "<td>Cuaca Siang</td>";
 echo "<td>Cuaca Malam</td>";
 echo "<td>Cuaca Dini Hari</td>";
+echo "<td>Keterangan</td>";
 echo "</tr>";
 foreach ($myurl as $myurls) {
 	//$html = file_get_html($myurls,false,$context);
 	if (urlOk(trim($myurls))) {
 		$html = file_get_html($myurls);
+		//print_r($myurls);
 	}
 	$kode_prov = substr($myurls, strrpos($myurls, "=") + 1);
 	switch ($kode_prov){
@@ -643,12 +657,26 @@ foreach ($myurl as $myurls) {
 			$prov = 'Sulawesi Tenggara';
 		break;
 		case ('33'):
-			$prov = 'Sumatera Tengah';
+			$prov = 'Sumatera Selatan';
 		break;
 	}
 	$kode_kab = $html->find('<h2[class=blog-grid-title-lg]',0);
-	$kode_kotas = substr($kode_kab, strrpos($kode_kab, "(") + 1);
-	$kab_kota = str_replace(')','',$kode_kotas);
+
+	$kode_kotas = substr($kode_kab, strrpos($kode_kab, "(") + 1); //get string after (
+	$cek = substr($kode_kab, strrpos($kode_kab, " ") + 1); //get string ()
+	$kab_kotas1 = substr($kode_kab,0, strpos($kode_kab, '(')); //get string before (
+
+	$str1 = array("Kab. ","Kota ","Kodya ","Kep. ","Sukadana","Pahuwato","Pangkajene Kep.");
+	$str2 = array("","","","KEPULAUAN ","Lampung Timur","POHUWATO","PANGKAJENE DAN KEPULAUAN");
+	$kab_kota = str_replace(')','',$kode_kotas); //replace string ) to space
+	$kab_kotas2 = str_replace($str1, $str2, $kab_kota); //replace string from compare str1 && str2
+
+	if($cek == '()'){ //jika string ()
+		$kabkota = $kab_kotas1; //cetak kab_kotas1
+	}else{
+		$kabkota = $kab_kotas2; //jika tidak, cetak kab_kotas2
+	}
+
 	foreach($html->find('div[id=TabPaneCuaca2]') as $element){
 		$H = False;
 		foreach($element->find('div[class=kiri]') as $cuaca){
@@ -664,15 +692,11 @@ foreach ($myurl as $myurls) {
 		$cuacaSiang = $element->find('div[class=kiri]',1)->childNodes(1); //siang
 		$cuacaMalam = $element->find('div[class=kiri]',2)->childNodes(1); //malam
 		$cuacaDiniHari = $element->find('div[class=kiri]',3); //dini hari
-		/*if(isset($get_cuacaDiniHari)){
-			$cuacaDiniHari = '-';
-		}else{
-			$cuacaDiniHari = $get_cuacaDiniHari;
-		}*/
+
 		if($H){
 			echo "<tr>";
 			echo "<td>".$prov."</td>";
-			echo "<td>".$kab_kota."</td>"; //get kota/kab
+			echo "<td>".$kabkota."</td>"; //get kota/kab
 			//cek cuacaPagi
 			if(strpos($cuacaPagi,'Hujan Petir') || strpos($cuacaPagi,'Hujan Lebat') || strpos($cuacaPagi,'Hujan Sedang')){
 				echo "<td>Hujan</td>";
@@ -689,11 +713,19 @@ foreach ($myurl as $myurls) {
 			if(strpos($cuacaDiniHari,'Hujan Petir') || strpos($cuacaDiniHari,'Hujan Lebat') || strpos($cuacaDiniHari,'Hujan Sedang')){
 				echo "<td>Hujan</td>";
 			}else{ echo"<td>-</td>";}
-		}/*else{
-			$Chujan = "Tidak Hujan";
-		} //cek hujan atau tidak*/
-		echo "</tr>";
+
+			if(strpos( $kab_kota, 'Kab') !== false ) {
+				echo "<td>Kab</td>";
+			}else if(strpos( $kab_kota, 'Kota') !== false ) {
+				echo "<td>Kota</td>";
+			}else{
+				echo "<td>-</td>";
+			}
+			echo "</tr>";
+		}//close true kondisi
 	}//close foreach id="TabPaneCuaca2"
 } //close foreach url
 echo "</table>"; //table
+echo "<hr>";
+echo "<b>Ket</b> :  </br><pre><p>    - : Tidak Hujan</p></pre>";
 ?>
