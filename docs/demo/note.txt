@@ -1,0 +1,2 @@
+PHP: Exporting Data to Excel >> http://www.the-art-of-web.com/php/dataexport/
+The .serialize() method creates a text string in standard URL-encoded notation >> http://api.jquery.com/serialize/

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <title>Validasi SMARTCLIM</title>
+      <link rel="stylesheet" href="css/style.css">
+      <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="ccheader">
+    <h1>Validasi SMARTCLIM</h1>
+    <h5>Tim Pemantau PASTIGANA</h5>
+</header>
+
+<div class="wrapper">
+    <form method="post" action="" class="ccform">
+    <div class="ccfield-prepend">
+        <select class="ccformfield" placeholder="Pilih Provinsi" required>
+          <option selected disabled>Pilih Provinsi</option>
+          <option>11 - Aceh</option>
+          <option>12 - Apa aja</option>
+      </select>
+    </div>
+    <div class="ccfield-prepend">
+      <table id="tabel_data">
+  <tr>
+    <th>Kode Kab./Kota</th>
+    <th>Kabupaten/Kota</th>
+    <th>Check PU</th>
+    <th>Check SMARTCLIM</th>
+    <th rowspan="3">Data BMKG</th>
+    <th rowspan="3">Data SMARTCLIM</th>
+  </tr>
+  <tr>
+    <td>{kode_kab}</td>
+    <td>{nama_kab}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>55577855</td>
+  </tr>
+</table>
+    </div>
+    
+<div class="ccfield-prepend">
+        <input class="ccbtn" type="submit" value="Simpan Data">
+    </div>
+    </form>
+</div>
+
+<div class="credit">
+<p>Frontend Programmer <a href="http://habibie.tk/" target="_blank">Habibie Ed Dien</a><br>Backend Programmer <a href="#" target="_blank">Asep Syarif Hidayat</a></p>
+</div>
+  
+  
+</body>
+
+</html>
