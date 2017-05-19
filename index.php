@@ -36,15 +36,15 @@ $provinsi = $db -> select("SELECT * FROM `provinsi` ORDER BY kode_prov");
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Validasi SMARTCLIM</a>
+            <a class="navbar-brand" href="http://validasi.pastigana.com">Validasi SMARTCLIM</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">PASTIGANA</a></li>
+            <li class="active"><a href="#">PASTIGANA</a></li>
             <li><a href="pusdalops.php">PUSDALOPS</a></li>
-            <li><a href="export.php">EXPORT TO EXCELS</a></li>
+            <li><a href="export.html">EXPORT TO EXCELS</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </nav>
