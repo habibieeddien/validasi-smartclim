@@ -12,6 +12,7 @@ class CRAWL{
 
     # URL utama yang akan di crawl
     protected static $MAIN_URL;
+    protected static $NOMOR = 1;
     
     /**
     * Constructor
@@ -47,7 +48,6 @@ class CRAWL{
                 $this -> get_data_prov($i);
             }
         }
-        echo '<h1>Crawl completed successfully!</h1><hr>';
     }
 
     /**
@@ -64,19 +64,17 @@ class CRAWL{
 
         # Ambil Nama Provinsi
         $prov = $site->find('h2[class=blog-grid-title-lg]', 0);
-        //echo 'Provinsi: '.$prov->plaintext.'<hr>';
+        $prov = $prov->plaintext;
 
         # Cek Ketersediaan Data di TabPanePaneCuaca1
         $tab = $site->find('div[id=TabPaneCuaca1]');
 
         if( count($tab) == 1 ){
-            //echo 'Masuk TabPane2<hr>';
             # Berarti Data Prakiraan besok ada di TabPaneCuaca2
-            $this -> data_in_table($site, '2');
+            $this -> data_in_table($site, '2', $prov, $ID);
         }else{
-            //echo 'Masuk TabPane3<hr>';
             # Berarti Data Prakiraan besok ada di TabPaneCuaca3
-            $this -> data_in_table($site, '3');
+            $this -> data_in_table($site, '3', $prov, $ID);
         }
 
         return $data;
@@ -85,7 +83,7 @@ class CRAWL{
     /**
     * Cetak Isi Data Tabel
     */
-    function data_in_table($site, $no){
+    function data_in_table($site, $no, $prov, $ID){
         # Tentukan TabPaneCuaca
         $tab = '#TabPaneCuaca'.$no;
 
@@ -93,26 +91,32 @@ class CRAWL{
                 $html = str_get_html($table->outertext);
                 $i = 1;
                 foreach($html->find('td') as $td){
-                        #echo $i.' '.$td->plaintext.'<hr>';
+                        # Untuk nomor baris di tabel
+                        if($i == 1){
+                            echo '<tr><td>'.self::$NOMOR.'</td><td>'.$prov.'</td>';
+                            self::$NOMOR++;
+                        }
+
+                        # Ambil data nama Kota beserta prakiraan cuaca
                         $text = $td->plaintext;
 
                         switch($i){
-                                case 1: /*echo 'Kab/Kota: '.$text.'<br>';*/ break;
-                                case 2: /*echo 'Pagi: '.*/$this->validasi_hujan( $text )/*.'<br>'*/; break;
-                                case 3: /*echo 'Siang: '.*/$this->validasi_hujan( $text )/*.'<br>'*/; break;
-                                case 4: /*echo 'Malam: '.*/$this->validasi_hujan( $text )/*.'<br>'*/; break;
-                                case 5: /*echo 'Dini Hari: '.*/$this->validasi_hujan( $text )/*.'<br>'*/; break;
+                                case 1: echo '<td>'.$text.'</td>'; break;
+                                case 2: echo '<td>'.$this->validasi_hujan( $text ).'</td>'; break;
+                                case 3: echo '<td>'.$this->validasi_hujan( $text ).'</td>'; break;
+                                case 4: echo '<td>'.$this->validasi_hujan( $text ).'</td>'; break;
+                                case 5: echo '<td>'.$this->validasi_hujan( $text ).'</td>'; break;
                         }
 
                         $i++;
-                        if($i == 8){ $i = 1; /*echo '<hr>';*/ }
+                        if($i == 8){ $i = 1; echo '<td>'.self::$MAIN_URL.''.$ID.'</td></tr>'; }
                 }
         }        
     }
 
     /**
     * Validasi Hujan
-    * Jika 'Hujan Petir' or 'Hujan Sedang' or 'Hujan Lebat' maka 'Hujan'
+    * Jika 'Hujan Petir' or 'Hujan Sedang' or 'Hujan Lebat' maka ditulis sebagai 'Hujan'
     */
     function validasi_hujan($cuaca){
         if ( strpos($cuaca, 'Hujan Petir') !== false ) {

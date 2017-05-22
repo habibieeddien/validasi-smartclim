@@ -1,4 +1,4 @@
-demo/*
+docs/demo/*
 *.log
 robots.txt
-demo/.htaccess
+docs/demo/.htaccess
